@@ -3,6 +3,8 @@ package com.company;
 import com.company.test.Code;
 import com.company.test.Test1;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.*;
@@ -10,8 +12,20 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        String format = String.format("%03d", 0);
-        System.out.println(format);
+        //价税合计 fen
+        Integer priceAndTaxCent = 300;
+        //税率
+        double taxRate = 0.03;
+        double taxCentD = priceAndTaxCent / (1 + taxRate) * taxRate;
+        Integer taxCent = new BigDecimal(taxCentD).setScale(1, RoundingMode.HALF_UP).intValue();
+        double a = 0.04;
+        double b = 0.03;
+        double c = a - b;
+        double diff = 1e-6f;
+        System.out.println(c);
+        System.out.println(c < diff);
+        System.out.println(c < a);
+        System.out.println(c < b);
     }
 
 
