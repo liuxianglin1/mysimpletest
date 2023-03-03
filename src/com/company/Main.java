@@ -17,7 +17,11 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-//        String msgBody = "  11  22  ? |?|H?O|10?|NaH?PO?|?|?|?|?|?|\"|/|?|?|m??<>";
+
+    }
+
+    public void stringPattern() {
+        //        String msgBody = "  11  22  ? |?|H?O|10?|NaH?PO?|?|?|?|?|?|\"|/|?|?|m??<>";
         String msgBody = "91340100670942291C";
         //	|
         //|
@@ -81,5 +85,41 @@ public class Main {
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
         return calendar.getTime();
+    }
+
+    public static class Student {
+        private String name;
+        private Integer age;
+
+        public Student() {}
+        public Student(String name, Integer age)  {
+            this.name = name;
+            this.age = age;
+        }
+        public void setName(String name) {
+            this.name = name;
+        }
+        public String getName() {
+            return this.name;
+        }
+
+        public void setAge(Integer age) {
+            this.age = age;
+        }
+        public Integer age() {
+            return this.age;
+        }
+
+    }
+
+    public void streamDistinct() {
+        List<Student> students = new ArrayList<Student>() {{
+            add(new Student("张三", 1));
+            add(new Student("李四", 2));
+            add(new Student("王五", 3));
+            add(new Student("张三", 1));
+            add(new Student("李四", 3));
+            add(new Student("王五1", 3));
+        }};
     }
 }
