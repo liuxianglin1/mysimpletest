@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.test.Code;
+import com.company.test.MyEntity;
 import com.company.test.Test1;
 
 import java.io.UnsupportedEncodingException;
@@ -17,10 +18,16 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-
+        System.out.println(new Date(4102286399L * 1000L));
+        long i = 70*365*24*60*60L;
+        System.out.println(i);
+        String str = null;
+        MyEntity myEntity = new MyEntity("张三", 1);
+        System.out.println("91" + str + "111");
+        System.out.println("91" + myEntity.toString() + "111");
     }
 
-    public void stringPattern() {
+    public void stringPattern() throws UnsupportedEncodingException {
         //        String msgBody = "  11  22  ? |?|H?O|10?|NaH?PO?|?|?|?|?|?|\"|/|?|?|m??<>";
         String msgBody = "91340100670942291C";
         //	|
