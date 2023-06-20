@@ -15,7 +15,7 @@ class Student extends Person {
     }
 }
 
-class subStudent extends Student {
+class SubStudent extends Student {
 
     @Override
     public String hello() {
