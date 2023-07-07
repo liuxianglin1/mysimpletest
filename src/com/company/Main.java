@@ -171,5 +171,5 @@ public class Main {
             add(new Student("李四", 3));
             add(new Student("王五1", 3));
         }};
-    }1111
+    }
 }
