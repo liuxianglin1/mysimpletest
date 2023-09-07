@@ -74,6 +74,7 @@ public class Main {
         System.out.println(s);
         s = s.replaceAll("_a", "/").replaceAll("_b", "\\+").replaceAll("_c", "=");
         System.out.println(s);
+        System.out.println(222);
     }
 
 
