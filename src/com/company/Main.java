@@ -6,9 +6,12 @@ import com.company.test.Test1;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.*;
@@ -19,8 +22,17 @@ public class Main {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
 
-        boolean b = checkRegexPassword1("MTIzNDU2Nzgh");
-        System.out.println(b);
+
+
+        // redis token key 加密方法
+        /*Map<String, String> values = new LinkedHashMap<String, String>();
+        values.put("username", "19215601660");
+        values.put("client_id", "tyhgld_001");
+        values.put("scope", "all");
+        System.out.print(generateKey(values));*/
+
+//        boolean b = checkRegexPassword1("MTIzNDU2Nzgh");
+//        System.out.println(b);
 
         /*List<String> list = new ArrayList<>();
         list.forEach(s -> s.equals(111));*/
@@ -56,14 +68,29 @@ public class Main {
 
 
     public static boolean checkRegexPassword1(String password) {
-        String decode = new String(Base64.getDecoder().decode(password));
-        String regEx1 = "^(?![@$!%*?&^#()])(?![\\d]+$)(?![a-z]+$)(?![A-Z]+$)(?![\\W_]+$)[\\da-zA-z\\W_]{8,20}$";
-        Pattern p1 = Pattern.compile(regEx1);
-        Matcher m1 = p1.matcher(decode);
-        if (!m1.matches()) {
-            return false;
-        }
+//        String decode = new String(Base64.getDecoder().decode(password));
+//        String regEx1 = "^(?![@$!%*?&^#()])(?![\\d]+$)(?![a-z]+$)(?![A-Z]+$)(?![\\W_]+$)[\\da-zA-z\\W_]{8,20}$";
+//        Pattern p1 = Pattern.compile(regEx1);
+//        Matcher m1 = p1.matcher(decode);
+//        if (!m1.matches()) {
+//            return false;
+//        }
         return true;
+
+    }
+
+
+    public static String generateKey(Map<String, String> values) {
+        MessageDigest digest;
+        try {
+            digest = MessageDigest.getInstance("MD5");
+            byte[] bytes = digest.digest(values.toString().getBytes("UTF-8"));
+            return String.format("%032x", new BigInteger(1, bytes));
+        } catch (NoSuchAlgorithmException nsae) {
+            throw new IllegalStateException("MD5 algorithm not available.  Fatal (should be in the JDK).", nsae);
+        } catch (UnsupportedEncodingException uee) {
+            throw new IllegalStateException("UTF-8 encoding not available.  Fatal (should be in the JDK).", uee);
+        }
     }
 
 
