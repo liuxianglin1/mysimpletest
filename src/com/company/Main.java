@@ -24,6 +24,17 @@ public class Main {
 
 
 
+/*      // Integer 值传递
+        Map<String, Long> mapA = new HashMap<>();
+        mapA.put("count", 1L);
+        Integer a = new Integer(1);
+        A aaa = new A();
+        aaa.dealWithNumber(a);
+        System.out.println(a);
+        System.out.printf("" + ++a);*/
+
+
+
         // redis token key 加密方法
         /*Map<String, String> values = new LinkedHashMap<String, String>();
         values.put("username", "19215601660");
@@ -64,6 +75,21 @@ public class Main {
          </RESPONSE_COMMON_FPKJ>
          */
 
+    }
+
+    public static Integer dealWithNumber(Integer a) {
+
+        a++;
+        System.out.println("dealWithNumber==========" + a);
+        return a;
+    }
+
+    public static void dealWithMapA(Map<String, Long> mapA) {
+
+        Long count = mapA.get("count");
+        count ++;
+        mapA.put("count", count);
+        System.out.println("dealWithMapA==========" + count);
     }
 
 
