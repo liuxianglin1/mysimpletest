@@ -15,12 +15,141 @@ import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.*;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Main {
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
+    public static String formatLocation(String location) {
+        // 将字符串中的空格替换为&
+        String formattedLocation = location.replace(" ", "&");
+        // 在省和市之间以及市和区/县之间插入&
+        formattedLocation = formattedLocation.replace("省", "省&").replace("市", "市&");
+        return formattedLocation;
+    }
+
+    public static void main(String[] args) throws UnsupportedEncodingException, InterruptedException {
+        Double aDouble = new Double(0.05);
+        boolean equals = new Double(0.05).equals(aDouble);
+        System.out.println(new Date());
+        Thread.sleep(10000);
+        System.out.println(new Date());
+        System.out.println(equals);
+        /*String location1 = "安徽省合肥市瑶海区";
+        String location2 = "安徽省合肥市肥东县";
+
+        String formattedLocation1 = formatLocation(location1);
+        String formattedLocation2 = formatLocation(location2);
+
+        System.out.println("转换后的第一个地点：" + formattedLocation1);
+        System.out.println("转换后的第二个地点：" + formattedLocation2);*/
+
+
+
+        /*double[] doubles = {2.5, 1.0, 3.0};
+
+//        sortedReturnList.stream()
+//                .sorted(Comparator.comparingDouble(FindHouseNewRespVO::getPrice).thenComparingInt(FindHouseNewRespVO::getDistance).thenComparingDouble(FindHouseNewRespVO::getSpace).reversed())
+//                .collect(Collectors.toList());
+
+        // 默认升序
+//        System.out.println("默认升序：");
+//        Arrays.stream(doubles)
+////                .boxed()
+//                .sorted(Comparator.comparingDouble(Double::doubleValue))
+//                .forEach(System.out::println);
+
+        System.out.println("默认升序：");
+//        double[] doubles = {2.5, 1.0, 3.0};
+        List<SortClass> sort = new ArrayList<>();
+        sort.add(new SortClass(1.0, 10.0));
+        sort.add(new SortClass(4.0, 14.0));
+        sort.add(new SortClass(2.0, 12.0));
+        sort.add(new SortClass(3.0, 13.0));
+
+
+        List<SortClass> collect =
+                sort.stream()
+                .sorted(Comparator.comparingDouble(SortClass::getValue1)
+                        .thenComparing(Comparator.comparingDouble(SortClass::getValue2).reversed()))
+                .collect(Collectors.toList());
+
+
+        System.out.println(collect);
+
+        // 降序
+        System.out.println("降序：");
+        Arrays.stream(doubles)
+                .boxed()
+                .sorted(Comparator.comparingDouble(Double::doubleValue).reversed())
+                .forEach(System.out::println);*/
+
+
+
+
+        /*List<String> stringList = new ArrayList<>();
+        for (String s : stringList) {
+
+            System.out.println(111);
+            System.out.println(s);
+        }
+        System.out.println(222);*/
+
+        /*List<FindHouseNewRespVO> sortedReturnList = new ArrayList<>();
+        List<FindHouseNewRespVO> newRespVOS = new ArrayList<>();
+
+
+        FindHouseNewRespVO vo = new FindHouseNewRespVO();
+        vo.setName("111");
+        vo.setApartmentId(1L);
+        vo.setLayoutId(2L);
+        vo.setIsConcentrated(true);
+        newRespVOS.add(vo);
+
+        FindHouseNewRespVO vo1 = new FindHouseNewRespVO();
+        vo1.setApartmentId(1L);
+        vo1.setLayoutId(2L);
+        vo1.setIsConcentrated(true);
+        vo1.setName("222");
+        newRespVOS.add(vo1);
+
+
+        FindHouseNewRespVO vo3 = new FindHouseNewRespVO();
+        vo3.setApartmentId(1L);
+        vo3.setLayoutId(2L);
+        vo3.setIsConcentrated(true);
+        vo3.setName("3333");
+        newRespVOS.add(vo3);
+
+        FindHouseNewRespVO vo4 = new FindHouseNewRespVO();
+        vo4.setApartmentId(1L);
+        vo4.setLayoutId(2L);
+        vo4.setIsConcentrated(false);
+        vo3.setName("4444");
+        newRespVOS.add(vo4);
+        sortedReturnList.addAll(newRespVOS);
+
+        //门店+房型 去重房源
+        List<FindHouseNewRespVO> concentratedNewRespVOS = sortedReturnList.stream().filter(FindHouseNewRespVO::getIsConcentrated).collect(Collectors.toList());
+        // 现在 deduplicatedList 中包含了根据两个属性去重后的对象列表
+        List<FindHouseNewRespVO> deduplicatedList = concentratedNewRespVOS.stream()
+                .collect(Collectors.toMap(
+                        obj -> obj.getApartmentId() + "-" + obj.getLayoutId(), // 生成用于比较的键
+                        Function.identity(), // 将对象本身作为值
+                        (existing, replacement) -> existing // 处理重复键的情况，保留第一个对象
+                ))
+                .values() // 获取所有值，即去重后的对象
+                .stream()
+                .collect(Collectors.toList());
+
+        List<FindHouseNewRespVO> returnList = new ArrayList<>();
+        returnList.addAll(sortedReturnList.stream().filter(obj -> !obj.getIsConcentrated()).collect(Collectors.toList()));
+        returnList.addAll(deduplicatedList);
+        sortedReturnList = returnList;
+        System.out.println(sortedReturnList.size());*/
+
 
 
 
@@ -32,7 +161,6 @@ public class Main {
         aaa.dealWithNumber(a);
         System.out.println(a);
         System.out.printf("" + ++a);*/
-
 
 
         // redis token key 加密方法
@@ -87,7 +215,7 @@ public class Main {
     public static void dealWithMapA(Map<String, Long> mapA) {
 
         Long count = mapA.get("count");
-        count ++;
+        count++;
         mapA.put("count", count);
         System.out.println("dealWithMapA==========" + count);
     }
@@ -120,7 +248,6 @@ public class Main {
     }
 
 
-
     public void test2222() {
         String s = "/+=";
         s = s.replaceAll("/", "_a").replaceAll("\\+", "_b").replaceAll("=", "_c");
@@ -131,15 +258,9 @@ public class Main {
     }
 
 
-
-
-
-
-
-
     public void test111() {
         System.out.println(new Date(4102286399L * 1000L));
-        long i = 70*365*24*60*60L;
+        long i = 70 * 365 * 24 * 60 * 60L;
         System.out.println(i);
         String str = null;
         MyEntity myEntity = new MyEntity("张三", 1);
@@ -165,7 +286,6 @@ public class Main {
         System.out.println(matches);
 
 
-
         String s1 = "交通银行股份有限公司北京石景山支行?110060872018010003732";
         byte[] bytes = s1.getBytes("GBK");
         String gbk = new String(bytes, "GBK");
@@ -185,6 +305,7 @@ public class Main {
 
     /**
      * 获取传入时间的结束时间
+     *
      * @param date
      * @return date
      */
@@ -200,6 +321,7 @@ public class Main {
 
     /**
      * ????????31???????
+     *
      * @param date
      * @return date
      */
@@ -218,14 +340,18 @@ public class Main {
         private String name;
         private Integer age;
 
-        public Student() {}
-        public Student(String name, Integer age)  {
+        public Student() {
+        }
+
+        public Student(String name, Integer age) {
             this.name = name;
             this.age = age;
         }
+
         public void setName(String name) {
             this.name = name;
         }
+
         public String getName() {
             return this.name;
         }
@@ -233,6 +359,7 @@ public class Main {
         public void setAge(Integer age) {
             this.age = age;
         }
+
         public Integer age() {
             return this.age;
         }
