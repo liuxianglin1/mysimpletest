@@ -1,3 +1,4 @@
+/*
 package com.company;
 
 public class Main1 {
@@ -55,3 +56,4 @@ class SubStudent extends Student {
 
 
 }
+*/

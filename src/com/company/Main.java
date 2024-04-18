@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.entity.Person;
+import com.company.eventlistener.PersonPropertyListener;
 import com.company.test.Code;
 import com.company.test.MyEntity;
 import com.company.test.Test1;
@@ -31,179 +33,14 @@ public class Main {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException, InterruptedException {
-        Double aDouble = new Double(0.05);
-        boolean equals = new Double(0.05).equals(aDouble);
-        System.out.println(new Date());
-        Thread.sleep(10000);
-        System.out.println(new Date());
-        System.out.println(equals);
-        /*String location1 = "安徽省合肥市瑶海区";
-        String location2 = "安徽省合肥市肥东县";
-
-        String formattedLocation1 = formatLocation(location1);
-        String formattedLocation2 = formatLocation(location2);
-
-        System.out.println("转换后的第一个地点：" + formattedLocation1);
-        System.out.println("转换后的第二个地点：" + formattedLocation2);*/
-
-
-
-        /*double[] doubles = {2.5, 1.0, 3.0};
-
-//        sortedReturnList.stream()
-//                .sorted(Comparator.comparingDouble(FindHouseNewRespVO::getPrice).thenComparingInt(FindHouseNewRespVO::getDistance).thenComparingDouble(FindHouseNewRespVO::getSpace).reversed())
-//                .collect(Collectors.toList());
-
-        // 默认升序
-//        System.out.println("默认升序：");
-//        Arrays.stream(doubles)
-////                .boxed()
-//                .sorted(Comparator.comparingDouble(Double::doubleValue))
-//                .forEach(System.out::println);
-
-        System.out.println("默认升序：");
-//        double[] doubles = {2.5, 1.0, 3.0};
-        List<SortClass> sort = new ArrayList<>();
-        sort.add(new SortClass(1.0, 10.0));
-        sort.add(new SortClass(4.0, 14.0));
-        sort.add(new SortClass(2.0, 12.0));
-        sort.add(new SortClass(3.0, 13.0));
-
-
-        List<SortClass> collect =
-                sort.stream()
-                .sorted(Comparator.comparingDouble(SortClass::getValue1)
-                        .thenComparing(Comparator.comparingDouble(SortClass::getValue2).reversed()))
-                .collect(Collectors.toList());
-
-
-        System.out.println(collect);
-
-        // 降序
-        System.out.println("降序：");
-        Arrays.stream(doubles)
-                .boxed()
-                .sorted(Comparator.comparingDouble(Double::doubleValue).reversed())
-                .forEach(System.out::println);*/
-
-
-
-
-        /*List<String> stringList = new ArrayList<>();
-        for (String s : stringList) {
-
-            System.out.println(111);
-            System.out.println(s);
-        }
-        System.out.println(222);*/
-
-        /*List<FindHouseNewRespVO> sortedReturnList = new ArrayList<>();
-        List<FindHouseNewRespVO> newRespVOS = new ArrayList<>();
-
-
-        FindHouseNewRespVO vo = new FindHouseNewRespVO();
-        vo.setName("111");
-        vo.setApartmentId(1L);
-        vo.setLayoutId(2L);
-        vo.setIsConcentrated(true);
-        newRespVOS.add(vo);
-
-        FindHouseNewRespVO vo1 = new FindHouseNewRespVO();
-        vo1.setApartmentId(1L);
-        vo1.setLayoutId(2L);
-        vo1.setIsConcentrated(true);
-        vo1.setName("222");
-        newRespVOS.add(vo1);
-
-
-        FindHouseNewRespVO vo3 = new FindHouseNewRespVO();
-        vo3.setApartmentId(1L);
-        vo3.setLayoutId(2L);
-        vo3.setIsConcentrated(true);
-        vo3.setName("3333");
-        newRespVOS.add(vo3);
-
-        FindHouseNewRespVO vo4 = new FindHouseNewRespVO();
-        vo4.setApartmentId(1L);
-        vo4.setLayoutId(2L);
-        vo4.setIsConcentrated(false);
-        vo3.setName("4444");
-        newRespVOS.add(vo4);
-        sortedReturnList.addAll(newRespVOS);
-
-        //门店+房型 去重房源
-        List<FindHouseNewRespVO> concentratedNewRespVOS = sortedReturnList.stream().filter(FindHouseNewRespVO::getIsConcentrated).collect(Collectors.toList());
-        // 现在 deduplicatedList 中包含了根据两个属性去重后的对象列表
-        List<FindHouseNewRespVO> deduplicatedList = concentratedNewRespVOS.stream()
-                .collect(Collectors.toMap(
-                        obj -> obj.getApartmentId() + "-" + obj.getLayoutId(), // 生成用于比较的键
-                        Function.identity(), // 将对象本身作为值
-                        (existing, replacement) -> existing // 处理重复键的情况，保留第一个对象
-                ))
-                .values() // 获取所有值，即去重后的对象
-                .stream()
-                .collect(Collectors.toList());
-
-        List<FindHouseNewRespVO> returnList = new ArrayList<>();
-        returnList.addAll(sortedReturnList.stream().filter(obj -> !obj.getIsConcentrated()).collect(Collectors.toList()));
-        returnList.addAll(deduplicatedList);
-        sortedReturnList = returnList;
-        System.out.println(sortedReturnList.size());*/
-
-
-
-
-/*      // Integer 值传递
-        Map<String, Long> mapA = new HashMap<>();
-        mapA.put("count", 1L);
-        Integer a = new Integer(1);
-        A aaa = new A();
-        aaa.dealWithNumber(a);
-        System.out.println(a);
-        System.out.printf("" + ++a);*/
-
-
-        // redis token key 加密方法
-        /*Map<String, String> values = new LinkedHashMap<String, String>();
-        values.put("username", "19215601660");
-        values.put("client_id", "tyhgld_001");
-        values.put("scope", "all");
-        System.out.print(generateKey(values));*/
-
-//        boolean b = checkRegexPassword1("MTIzNDU2Nzgh");
-//        System.out.println(b);
-
-        /*List<String> list = new ArrayList<>();
-        list.forEach(s -> s.equals(111));*/
-
-
-
-
-
-        /*String s = "PFJFU1BPTlNFX0NPTU1PTl9GUEtKIGNsYXNzPSJSRVNQT05TRV9DT01NT05fRlBLSiI+DQoJPERESD4xNjM3OTAxMTU5NjMyNjcxPC9EREg+DQoJPEZQUVFMU0g+MjAyMTExMjYxMTM3NDI4NTgxNDI8L0ZQUVFMU0g+DQoJPEpRQkg+NjYxMTAyNTc2NjA3PC9KUUJIPg0KCTxGUF9ETT4wMzQxNTIxMDAxMTE8L0ZQX0RNPg0KCTxGUF9ITT4wNDI3MzcxNzwvRlBfSE0+DQoJPEtQUlE+MjAyMTExMjYxMjMzNTg8L0tQUlE+DQoJPEZQX01XPjgrNzk5Njc3NjkmbHQ7Jmd0OzQ1LSo2NCZndDs4KzQ1ODU0MyZndDszMjU4Jmd0OzgrLS8rMDkrLzMxOTIvNzgzLTEqKyZsdDsrLzI3NjQqLTM3MDk5Jmx0OzI0NSZndDsvNDUvKisqMzg3MC0qMS81OCZndDs4Ky0vKzA5Ky8zMTkyLSZsdDs4NzwvRlBfTVc+DQoJPEpZTT42OTc0NjE3Njk5MTkxODQwODQ1MTwvSllNPg0KCTxFV00+UWszQ0F3QUFBQUFBQUQ0QUFBQW9BQUFBU3dBQUFFc0FBQUFCQUFFQUFBQUFBSVFEQUFBQUFBQUFBQUFBQUFBQUFBQUNBQUFBQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy9nQUFBQUF6Lzg4elB3TS84Z0FBQUFBei84OHpQd00vOGdBQUEvOC9NUEREejh6L0FnQUFBLzgvTVBERHo4ei9BZ0FBQXdNL0F3QUR3dy96OGdBQUF3TS9Bd0FEd3cvejhnQUFBd016OFBNL3d6OFBNZ0FBQXdNejhQTS93ejhQTWdBQUF3TXpEQS84UDhBQXpnQUFBd016REEvOFA4QUF6Z0FBQS84dzhEdy9QUFB6OGdBQUEvOHc4RHcvUFBQejhnQUFBQUF3TUEvQUFETXdBZ0FBQUFBd01BL0FBRE13QWdBQUQvL3cvOFBQOHdQelBnQUFELy93LzhQUDh3UHpQZ0FBREFNUHpETS96QUFEQWdBQURBTVB6RE0vekFBREFnQUFETXpNL00vekR6QUREZ0FBRE16TS9NL3pEekFERGdBQUQ4QVAvL01BL0F3dzhnQUFEOEFQLy9NQS9Bd3c4Z0FBRFAvd016UEEvOHpBemdBQURQL3dNelBBLzh6QXpnQUFEUEFQd0FBTXd3dy84Z0FBRFBBUHdBQU13d3cvOGdBQUQvek0vTURBTXpNL0RnQUFEL3pNL01EQU16TS9EZ0FBRDhNQXd3dy9BOEF6d2dBQUQ4TUF3d3cvQThBendnQUFEUER6RDhQQUF3RHpEZ0FBRFBEekQ4UEFBd0R6RGdBQUFEdy9Qd3d6UC84ejhnQUFBRHcvUHd3elAvOHo4Z0FBQU1QQS8vOC9QUHd6OGdBQUFNUEEvLzgvUFB3ejhnQUFBQUF3UE04endBQU1BZ0FBQUFBd1BNOHp3QUFNQWdBQUF6RC96L0F6endQOFBnQUFBekQvei9Benp3UDhQZ0FBRFBBUERBRHd3QUFQRGdBQURQQVBEQUR3d0FBUERnQUFEd3p3ek13RHp6QXpBZ0FBRHd6d3pNd0R6ekF6QWdBQURBd01Qd0RBUEFQd01nQUFEQXdNUHdEQVBBUHdNZ0FBRE1EUFA4enpBTXpBRGdBQURNRFBQOHp6QU16QURnQUFBQU04QS9NRER3dy93Z0FBQUFNOEEvTUREd3cvd2dBQUFERHdNQXcvenp3ek1nQUFBRER3TUF3L3p6d3pNZ0FBQU04UEFQdzh6dzhEQWdBQUFNOFBBUHc4enc4REFnQUFBTS8vRFAvekE4RHdQZ0FBQU0vL0RQL3pBOER3UGdBQUE4QURETU13Lzh6ekFnQUFBOEFERE1Ndy84enpBZ0FBRC8vL01QL013RC8vL2dBQUQvLy9NUC9Nd0QvLy9nQUFBQUF6TXpNek16TUFBZ0FBQUFBek16TXpNek1BQWdBQUEvOC93QXc4ei9NLzhnQUFBLzgvd0F3OHovTS84Z0FBQXdNd0RQekRNUDh3TWdBQUF3TXdEUHpETVA4d01nQUFBd004d01BTVBEOHdNZ0FBQXdNOHdNQU1QRDh3TWdBQUF3TXp3L013d0FNd01nQUFBd016dy9Nd3dBTXdNZ0FBQS84d0Q4QXdNRDgvOGdBQUEvOHdEOEF3TUQ4LzhnQUFBQUF6L3pBTUFQTUFBZ0FBQUFBei96QU1BUE1BQWdBQUE9PC9FV00+DQoJPFBERl9VUkw+aHR0cDovL2ZpbGVzLmFoZHpmcC5jb206OTAwMC9maWxlc091dC9mZGZzLzUwMmJiNDZlNmQ3MTRhMGY5OTFjNjEyZjM2MDZlNTQ1PC9QREZfVVJMPg0KPC9SRVNQT05TRV9DT01NT05fRlBLSj4=";
-        s = s.replaceAll("_a", "/").replaceAll("_b", "\\+").replaceAll("_c", "=");
-        System.out.println(s);
-        String s1 = new String(Base64.getDecoder().decode(s));
-        System.out.println(s1);*/
-
-
-        /**
-         PFJFU1BPTlNFX0NPTU1PTl9GUEtKIGNsYXNzPSJSRVNQT05TRV9DT01NT05fRlBLSiI+DQoJPERESD4xNjM3OTAxMTU5NjMyNjcxPC9EREg+DQoJPEZQUVFMU0g+MjAyMTExMjYxMTM3NDI4NTgxNDI8L0ZQUVFMU0g+DQoJPEpRQkg+NjYxMTAyNTc2NjA3PC9KUUJIPg0KCTxGUF9ETT4wMzQxNTIxMDAxMTE8L0ZQX0RNPg0KCTxGUF9ITT4wNDI3MzcxNzwvRlBfSE0+DQoJPEtQUlE+MjAyMTExMjYxMjMzNTg8L0tQUlE+DQoJPEZQX01XPjgrNzk5Njc3NjkmbHQ7Jmd0OzQ1LSo2NCZndDs4KzQ1ODU0MyZndDszMjU4Jmd0OzgrLS8rMDkrLzMxOTIvNzgzLTEqKyZsdDsrLzI3NjQqLTM3MDk5Jmx0OzI0NSZndDsvNDUvKisqMzg3MC0qMS81OCZndDs4Ky0vKzA5Ky8zMTkyLSZsdDs4NzwvRlBfTVc+DQoJPEpZTT42OTc0NjE3Njk5MTkxODQwODQ1MTwvSllNPg0KCTxFV00+UWszQ0F3QUFBQUFBQUQ0QUFBQW9BQUFBU3dBQUFFc0FBQUFCQUFFQUFBQUFBSVFEQUFBQUFBQUFBQUFBQUFBQUFBQUNBQUFBQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy9nQUFBQUF6Lzg4elB3TS84Z0FBQUFBei84OHpQd00vOGdBQUEvOC9NUEREejh6L0FnQUFBLzgvTVBERHo4ei9BZ0FBQXdNL0F3QUR3dy96OGdBQUF3TS9Bd0FEd3cvejhnQUFBd016OFBNL3d6OFBNZ0FBQXdNejhQTS93ejhQTWdBQUF3TXpEQS84UDhBQXpnQUFBd016REEvOFA4QUF6Z0FBQS84dzhEdy9QUFB6OGdBQUEvOHc4RHcvUFBQejhnQUFBQUF3TUEvQUFETXdBZ0FBQUFBd01BL0FBRE13QWdBQUQvL3cvOFBQOHdQelBnQUFELy93LzhQUDh3UHpQZ0FBREFNUHpETS96QUFEQWdBQURBTVB6RE0vekFBREFnQUFETXpNL00vekR6QUREZ0FBRE16TS9NL3pEekFERGdBQUQ4QVAvL01BL0F3dzhnQUFEOEFQLy9NQS9Bd3c4Z0FBRFAvd016UEEvOHpBemdBQURQL3dNelBBLzh6QXpnQUFEUEFQd0FBTXd3dy84Z0FBRFBBUHdBQU13d3cvOGdBQUQvek0vTURBTXpNL0RnQUFEL3pNL01EQU16TS9EZ0FBRDhNQXd3dy9BOEF6d2dBQUQ4TUF3d3cvQThBendnQUFEUER6RDhQQUF3RHpEZ0FBRFBEekQ4UEFBd0R6RGdBQUFEdy9Qd3d6UC84ejhnQUFBRHcvUHd3elAvOHo4Z0FBQU1QQS8vOC9QUHd6OGdBQUFNUEEvLzgvUFB3ejhnQUFBQUF3UE04endBQU1BZ0FBQUFBd1BNOHp3QUFNQWdBQUF6RC96L0F6endQOFBnQUFBekQvei9Benp3UDhQZ0FBRFBBUERBRHd3QUFQRGdBQURQQVBEQUR3d0FBUERnQUFEd3p3ek13RHp6QXpBZ0FBRHd6d3pNd0R6ekF6QWdBQURBd01Qd0RBUEFQd01nQUFEQXdNUHdEQVBBUHdNZ0FBRE1EUFA4enpBTXpBRGdBQURNRFBQOHp6QU16QURnQUFBQU04QS9NRER3dy93Z0FBQUFNOEEvTUREd3cvd2dBQUFERHdNQXcvenp3ek1nQUFBRER3TUF3L3p6d3pNZ0FBQU04UEFQdzh6dzhEQWdBQUFNOFBBUHc4enc4REFnQUFBTS8vRFAvekE4RHdQZ0FBQU0vL0RQL3pBOER3UGdBQUE4QURETU13Lzh6ekFnQUFBOEFERE1Ndy84enpBZ0FBRC8vL01QL013RC8vL2dBQUQvLy9NUC9Nd0QvLy9nQUFBQUF6TXpNek16TUFBZ0FBQUFBek16TXpNek1BQWdBQUEvOC93QXc4ei9NLzhnQUFBLzgvd0F3OHovTS84Z0FBQXdNd0RQekRNUDh3TWdBQUF3TXdEUHpETVA4d01nQUFBd004d01BTVBEOHdNZ0FBQXdNOHdNQU1QRDh3TWdBQUF3TXp3L013d0FNd01nQUFBd016dy9Nd3dBTXdNZ0FBQS84d0Q4QXdNRDgvOGdBQUEvOHdEOEF3TUQ4LzhnQUFBQUF6L3pBTUFQTUFBZ0FBQUFBei96QU1BUE1BQWdBQUE9PC9FV00+DQoJPFBERl9VUkw+aHR0cDovL2ZpbGVzLmFoZHpmcC5jb206OTAwMC9maWxlc091dC9mZGZzLzUwMmJiNDZlNmQ3MTRhMGY5OTFjNjEyZjM2MDZlNTQ1PC9QREZfVVJMPg0KPC9SRVNQT05TRV9DT01NT05fRlBLSj4=
-         <RESPONSE_COMMON_FPKJ class="RESPONSE_COMMON_FPKJ">
-         <DDH>1637901159632671</DDH>
-         <FPQQLSH>20211126113742858142</FPQQLSH>
-         <JQBH>661102576607</JQBH>
-         <FP_DM>034152100111</FP_DM>
-         <FP_HM>04273717</FP_HM>
-         <KPRQ>20211126123358</KPRQ>
-         <FP_MW>8+79967769&lt;&gt;45-*64&gt;8+458543&gt;3258&gt;8+-/+09+/3192/783-1*+&lt;+/2764*-37099&lt;245&gt;/45/*+*3870-*1/58&gt;8+-/+09+/3192-&lt;87</FP_MW>
-         <JYM>69746176991918408451</JYM>
-         <EWM>Qk3CAwAAAAAAAD4AAAAoAAAASwAAAEsAAAABAAEAAAAAAIQDAAAAAAAAAAAAAAAAAAACAAAAAAAA///////////////////gAAAAAz/88zPwM/8gAAAAAz/88zPwM/8gAAA/8/MPDDz8z/AgAAA/8/MPDDz8z/AgAAAwM/AwADww/z8gAAAwM/AwADww/z8gAAAwMz8PM/wz8PMgAAAwMz8PM/wz8PMgAAAwMzDA/8P8AAzgAAAwMzDA/8P8AAzgAAA/8w8Dw/PPPz8gAAA/8w8Dw/PPPz8gAAAAAwMA/AADMwAgAAAAAwMA/AADMwAgAAD//w/8PP8wPzPgAAD//w/8PP8wPzPgAADAMPzDM/zAADAgAADAMPzDM/zAADAgAADMzM/M/zDzADDgAADMzM/M/zDzADDgAAD8AP//MA/Aww8gAAD8AP//MA/Aww8gAADP/wMzPA/8zAzgAADP/wMzPA/8zAzgAADPAPwAAMwww/8gAADPAPwAAMwww/8gAAD/zM/MDAMzM/DgAAD/zM/MDAMzM/DgAAD8MAwww/A8AzwgAAD8MAwww/A8AzwgAADPDzD8PAAwDzDgAADPDzD8PAAwDzDgAAADw/PwwzP/8z8gAAADw/PwwzP/8z8gAAAMPA//8/PPwz8gAAAMPA//8/PPwz8gAAAAAwPM8zwAAMAgAAAAAwPM8zwAAMAgAAAzD/z/AzzwP8PgAAAzD/z/AzzwP8PgAADPAPDADwwAAPDgAADPAPDADwwAAPDgAADwzwzMwDzzAzAgAADwzwzMwDzzAzAgAADAwMPwDAPAPwMgAADAwMPwDAPAPwMgAADMDPP8zzAMzADgAADMDPP8zzAMzADgAAAAM8A/MDDww/wgAAAAM8A/MDDww/wgAAADDwMAw/zzwzMgAAADDwMAw/zzwzMgAAAM8PAPw8zw8DAgAAAM8PAPw8zw8DAgAAAM//DP/zA8DwPgAAAM//DP/zA8DwPgAAA8ADDMMw/8zzAgAAA8ADDMMw/8zzAgAAD///MP/MwD///gAAD///MP/MwD///gAAAAAzMzMzMzMAAgAAAAAzMzMzMzMAAgAAA/8/wAw8z/M/8gAAA/8/wAw8z/M/8gAAAwMwDPzDMP8wMgAAAwMwDPzDMP8wMgAAAwM8wMAMPD8wMgAAAwM8wMAMPD8wMgAAAwMzw/MwwAMwMgAAAwMzw/MwwAMwMgAAA/8wD8AwMD8/8gAAA/8wD8AwMD8/8gAAAAAz/zAMAPMAAgAAAAAz/zAMAPMAAgAAA=</EWM>
-         <PDF_URL>http://files.ahdzfp.com:9000/filesOut/fdfs/502bb46e6d714a0f991c612f3606e545</PDF_URL>
-         </RESPONSE_COMMON_FPKJ>
-         */
-
+        Person p = new Person(65);
+        //添加监听器
+        p.addPropertyChangeListener(new PersonPropertyListener());
+        p.setWeight(64);
+        p.setWeight(65);
+        p.setWeight(66);
     }
+
 
     public static Integer dealWithNumber(Integer a) {
 
@@ -318,62 +155,6 @@ public class Main {
         calendar.set(Calendar.MILLISECOND, 999);
         return calendar.getTime();
     }
-
-    /**
-     * ????????31???????
-     *
-     * @param date
-     * @return date
-     */
-    public static Date getStartTimeOfFirstThirtyOneDaysOfCurrentTime(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.DATE, -31);
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        return calendar.getTime();
-    }
-
-    public static class Student {
-        private String name;
-        private Integer age;
-
-        public Student() {
-        }
-
-        public Student(String name, Integer age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-
-        public void setAge(Integer age) {
-            this.age = age;
-        }
-
-        public Integer age() {
-            return this.age;
-        }
-
-    }
-
-    public void streamDistinct() {
-        List<Student> students = new ArrayList<Student>() {{
-            add(new Student("张三", 1));
-            add(new Student("李四", 2));
-            add(new Student("王五", 3));
-            add(new Student("张三", 1));
-            add(new Student("李四", 3));
-            add(new Student("王五1", 3));
-        }};
-    }
 }
+
+

@@ -1,3 +1,4 @@
+/*
 package com.company.test;
 
 
@@ -27,3 +28,4 @@ class SubStudent extends Student {
         return this.name + this.password;
     }
 }
+*/
