@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.concurrent.*;
+import java.math.BigDecimal;
 
 /**
  * @author liuxianglin
@@ -9,21 +9,15 @@ import java.util.concurrent.*;
  */
 public class CountDownLatchTest {
 
-    public static void main(String[] args) throws InterruptedException {
-//        CountDownLatch doneSignal = new CountDownLatch(3);
-        ExecutorService service = Executors.newFixedThreadPool(1);
-        for (int i = 0; i < 10; ++i) {// create and start threads
-//        e.execute(new WorkerRunnable(doneSignal, i));
-            service.execute(new WorkerRunnable(i));}
-//        try {
-////            doneSignal.await();      // wait for all to finish
-//        } catch (InterruptedException exception) {
-//            Thread.currentThread().interrupt();
-//        }
-        service.shutdown();
-        service.awaitTermination(10, TimeUnit.MINUTES);
-        System.out.println("继续执行主线程的其他任务");
+    public static void main(String[] args) {
+        BigDecimal num1 = new BigDecimal("10.5");
+        BigDecimal num2 = new BigDecimal("3.2");
+
+        BigDecimal result = num1.subtract(num2);
+
+        System.out.println("Subtraction result: " + result);
     }
+
 
 
 }
