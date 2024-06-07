@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.enums.BpmBusinessTypeEnum;
+
 import java.math.BigDecimal;
 
 /**
@@ -10,12 +12,7 @@ import java.math.BigDecimal;
 public class CountDownLatchTest {
 
     public static void main(String[] args) {
-        BigDecimal num1 = new BigDecimal("10.5");
-        BigDecimal num2 = new BigDecimal("3.2");
-
-        BigDecimal result = num1.subtract(num2);
-
-        System.out.println("Subtraction result: " + result);
+        System.out.println(BpmBusinessTypeEnum.PAYMENT_BY_THE_OWNER.name());
     }
 
 
