@@ -3,6 +3,7 @@ package com.company;
 import com.company.enums.BpmBusinessTypeEnum;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -14,11 +15,34 @@ import java.time.LocalDateTime;
 public class CountDownLatchTest {
 
     public static void main(String[] args) {
-        System.out.println(BpmBusinessTypeEnum.PAYMENT_BY_THE_OWNER.name());
-        LocalDate date1 = LocalDate.of(2024, 6, 17);
-        LocalDate date2 = LocalDate.of(2025, 7, 25);
 
-        System.out.println(date1.getMonth() ==  date2.getMonth());
+
+    }
+
+    private void test01() {
+        // 金额 + 税额
+        double priceAndTax = 3960;
+        //税额
+        double taxRate = 0.09;
+        double tax = priceAndTax / (1 + taxRate) * taxRate;
+        System.out.println("税额tax ==========" + tax);
+        double tax1 = BigDecimal.valueOf(tax).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        System.out.println("税额tax1 ==========" + tax1);
+        // 金额
+        double price = priceAndTax -tax1;
+        System.out.println("金额price ==========" + price);
+    }
+
+    private void test02() {
+        // 金额 + 税额
+        BigDecimal priceAndTax = new BigDecimal("3960");
+        //税额
+        BigDecimal taxRate = new BigDecimal("0.09");
+        BigDecimal tax1 = priceAndTax.multiply(taxRate).divide(taxRate.add(new BigDecimal("1")), 2, RoundingMode.HALF_UP);
+        System.out.println("税额tax1 ==========" + tax1);
+        // 金额
+        BigDecimal price = priceAndTax.subtract(tax1);
+        System.out.println("金额price ==========" + price);
     }
 
 
