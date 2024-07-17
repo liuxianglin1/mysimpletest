@@ -15,9 +15,9 @@ import java.time.LocalDateTime;
 public class CountDownLatchTest {
 
     public static void main(String[] args) throws InterruptedException {
-        System.out.println(LocalDateTime.now());
-        //\u000d\u0054\u0068\u0072\u0065\u0061\u0064\u002e\u0073\u006c\u0065\u0065\u0070\u0028\u0032\u0030\u0030\u0030\u0029\u003b
-        System.out.println(LocalDateTime.now());
+        char[] chars = new String("张三").toCharArray();
+        int numericValue = Character.getNumericValue(chars[2]);
+        System.out.println(numericValue);
     }
 
     private void test01() {
@@ -44,6 +44,12 @@ public class CountDownLatchTest {
         // 金额
         BigDecimal price = priceAndTax.subtract(tax1);
         System.out.println("金额price ==========" + price);
+    }
+
+    private void test03() throws InterruptedException {
+        System.out.println(LocalDateTime.now());
+        //\u000d\u0054\u0068\u0072\u0065\u0061\u0064\u002e\u0073\u006c\u0065\u0065\u0070\u0028\u0032\u0030\u0030\u0030\u0029\u003b
+        System.out.println(LocalDateTime.now());
     }
 
 
